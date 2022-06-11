@@ -1,0 +1,19 @@
+name: Continuous Integration with GitHub Actions
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: TEST
+    steps:
+      - name: Clonar y ubicarse en la rama main
+        uses: actions/checkout@v2
+      - name: Instalar dependencias
+        run: npm install
+      - name: Instalar devDependencias
+        run: npm install --dev
+      - name: Ejecutar test
+        run: npm test
