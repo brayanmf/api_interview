@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
-const connectionString = process.env.MONGODB_URI;
+const { MONGODB_URI, MONGODB_URI_TEST, NODE_ENV, MONGODB_URI_PROD } =
+  process.env;
+
+let connectionString = NODE_ENV === "test" ? MONGODB_URI_TEST : MONGODB_URI;
+if (NODE_ENV === "production") {
+  connectionString = MONGODB_URI_PROD;
+}
 
 const connectDatabase = () => {
   mongoose
