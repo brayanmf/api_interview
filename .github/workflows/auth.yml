@@ -1,0 +1,22 @@
+name: Continuous Integration with GitHub Actions
+on:
+  pull_request:
+    branches:
+      - main
+env:
+  MONGODB_URI_TEST: ${{ env.MONGODB_URI_TEST}}
+  PORT: ${{ env.PORT}}
+  JWT_COOKIE_EXPIRES: ${{ env.JWT_COOKIE_EXPIRES}}
+  JWT_EXPIRES: ${{ env.JWT_EXPIRES}}
+  JWT_SECRET: ${{ env.JWT_SECRET}}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar y ubicarse en la rama main
+        uses: actions/checkout@v2
+      - name: Instalar dependencias
+        run: npm install
+      - name: Ejecutar test
+        run: npm test
