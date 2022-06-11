@@ -1,0 +1,28 @@
+name: Continuous Integration with GitHub Actions
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      MONGODB_URI: mongodb://localhost:27017/interview_db
+      MONGODB_URI_TEST: mongodb://localhost:27017/interview_db_test
+      #MONGODB_URI_PROD:
+      FRONTEND_ENDPOINT: http://localhost:3000
+      PORT: 3306
+      JWT_COOKIE_EXPIRES: 1
+      JWT_EXPIRES: 1d
+      JWT_SECRET: 12bfcc6a287b53479d22a7b053b5c473
+    steps:
+      - name: Clonar y ubicarse en la rama main
+        uses: actions/checkout@v2
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.7.0
+        with:
+          mongodb-version: 5
+      - name: Instalar dependencias
+        run: npm install
+      - name: Ejecutar test
+        run: npm test
