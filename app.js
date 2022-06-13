@@ -9,6 +9,7 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
   origin: process.env.FRONTEND_ENDPOINT,
 };
+
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use("/api/v1", auth);

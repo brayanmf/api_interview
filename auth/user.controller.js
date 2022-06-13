@@ -11,7 +11,7 @@ exports.registerUser = async (req, res, next) => {
   try {
     const user = await addUser(req.body, next);
 
-    sendToken(user, 201, res);
+    if (user) sendToken(user, 201, res);
   } catch (err) {
     next(err);
   }
@@ -25,7 +25,7 @@ exports.registerUser = async (req, res, next) => {
 exports.loginUser = async (req, res, next) => {
   try {
     const user = await findUser(req.body, next);
-    sendToken(user, 200, res);
+    if (user) sendToken(user, 200, res);
   } catch (err) {
     next(err);
   }

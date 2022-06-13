@@ -1,7 +1,6 @@
 const ErrorHandler = require("../utils/errorHandler.js");
 
 module.exports = (err, req, res, next) => {
-  console.log(err);
   err.statusCode = err.statusCode || 500;
   err.message = err.message || "Internal Server Error";
   if (err.code === 11000) {

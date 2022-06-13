@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "62a76305d8d78d48f56fd917"
+  },
+  "userName": "admin",
+  "fullName": "admin name",
+  "password": "$2b$10$TSiAWOARbxq2EQ9Ql/D.L.U3mdgJg2eiRXcn1g.Lezgz.VjYAEK2e",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655137029213"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655137029213"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a76319d8d78d48f56fd919"
+  },
+  "userName": "admin2",
+  "fullName": "admin2 name",
+  "password": "$2b$10$lgwZaRN8BLClalC5d2DrV.dkcoVRXJQ3EegnmjaA8qVQimoqOhNBK",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655137049507"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655137049507"
+    }
+  },
+  "__v": 0
+}]
